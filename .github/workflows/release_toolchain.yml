@@ -27,14 +27,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Replace maven settings
-        run: mkdir -p ~/.m2 && echo '${{ secrets.M2_SETTINGS }}' > ~/.m2/settings.xml
-
       - name: Install JDK 8
         uses: actions/setup-java@v4
         with:
           java-version: '8'
-          distribution: 'adopt'
+          distribution: 'zulu'
           cache: 'maven'
        
       - name: Import GPG key
